@@ -42,6 +42,22 @@ IE或360等可以参考下面链接文档设置：
 
 [https://blog.csdn.net/weixin_40695725/article/details/100575598](https://blog.csdn.net/weixin_40695725/article/details/100575598)
 
+#### vscode 设置 =========================
+
+1，mac系统VScode设置中文
+
+macOS 快捷键：·command + shift + p· 
+
+输入搜索 ·configure language· 或则 选择 ·configure display language·
+
+如果没有需要的语言需要安装对应语言包 
+
+2.git 修改记录
+
+VsCode中的GitLens插件刚好能满足这个需求
+
+
+
 #### 安装教程 =========================
 
 1. xxxx
