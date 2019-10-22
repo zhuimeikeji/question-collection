@@ -1,5 +1,26 @@
 # .md格式的markdown文件常用语法介绍
 
+README文件后缀名为md。md是markdown的缩写，markdown是一种编辑博客的语言。用惯了可视化的博客编辑器（比如CSDN博客，囧），这种编程式的博客编辑方案着实让人眼前一亮。不过GitHub支持的语法在标准markdown语法的基础上做了修改，称为Github Flavored Markdown，简称GFM。
+
+## 
+
+
+```md
+gsgsssgsafsadfasfasfa
+```
+
+```md
+# 一斤
+## 二斤
+### 三斤
+#### 四斤
+##### 五斤
+###### 六斤
+####### 七斤
+```
+
+
+
 才认识
 =
 
