@@ -276,8 +276,8 @@ demo --------------------------
 
 demo --------------------------
 
-![baidu4][test]
-[test]:http://www.baidu.com/img/bdlogo.gif
+![][baidu5]
+[baidu5]:http://www.baidu.com/img/bdlogo.gif
 
 --------------------------
 
