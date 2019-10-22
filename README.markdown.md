@@ -225,21 +225,22 @@ demo --------------------------
 其实与上面的格式基本一致的，所不同的就是括号里的URL该怎么写。
 
 ```md
-https://github.com/ 你的用户名 / 你的项目名 / raw / 分支名 / 存放图片的文件夹 / 该文件夹下的图片
-https://gitee.com/ 你的用户名 / 你的项目名 / blob / 分支名 / 存放图片的文件夹 / 该文件夹下的图片
+https://gitee.com/ 你的用户名 / 你的项目名 / raw / 分支名 / 存放图片的文件夹 / 该文件夹下的图片  (gitee.com 非特定)
 ```
 
 这样一目了然了吧。比如：
 
 ```md
-![](https://gitee.com/zhuimei/question-collection/blob/master/img/testimg.jpeg) 
+![](https://gitee.com/zhuimei/question-collection/raw/master/img/testimg.jpeg) 
 ```
 
 demo --------------------------
 
-![](https://gitee.com/zhuimei/question-collection/blob/master/img/testimg.jpeg)  
+![](https://gitee.com/zhuimei/question-collection/raw/master/img/testimg.jpeg)  
 
 --------------------------
+
+或则用相对路径支持项目中的图片
 
 ```md
 ![](./img/testimg.jpeg) 
@@ -250,3 +251,23 @@ demo --------------------------
 ![](./img/testimg.jpeg)  
 
 --------------------------
+
+### 给图片加上超链接
+
+如果你想使图片带有超链接的功能，即点击一个图片进入一个指定的网页。那么可以这样写：
+
+```md
+[![baidu]](http://baidu.com)  
+[baidu]:http://www.baidu.com/img/bdlogo.gif "百度Logo"  
+```
+
+demo --------------------------
+
+[![baidu]](http://baidu.com)  
+[baidu]:http://www.baidu.com/img/bdlogo.gif "百度Logo" 
+
+--------------------------
+
+这两句和前面的写法差异较大，但是也极易模仿着写出，就不过多介绍了。只需注意上下文中的 baidu 是你自己起的标识的名称，可以随意，但是一定要保证上下两行的 标识 是一致的。
+这样就能实现 点击图片进入网页的功能了。
+
