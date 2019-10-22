@@ -271,8 +271,15 @@ demo --------------------------
 ```md
 [![baidu4]](https://www.zhi-jie.net "悬停显示")
 [baidu4]:http://www.baidu.com/img/bdlogo.gif
-
 ```
+
+demo --------------------------
+
+[![baidu3][base6412str]](https://www.zhi-jie.net "悬停显示")
+
+[base6412str]:http://www.baidu.com/img/bdlogo.gif
+
+--------------------------
 
 demo --------------------------
 
