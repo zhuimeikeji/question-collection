@@ -276,8 +276,8 @@ demo --------------------------
 
 demo --------------------------
 
-[![baidu][test]](http://baidu.com)  
-[test]:http://www.baidu.com/img/bdlogo.gif "百度Logo" 
+[![baidu4]](https://www.zhi-jie.net "悬停显示")
+[baidu4]:http://www.baidu.com/img/bdlogo.gif
 
 --------------------------
 
