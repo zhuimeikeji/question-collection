@@ -252,17 +252,32 @@ demo --------------------------
 
 --------------------------
 
+### 
+
 ### 给图片加上超链接
 
 如果你想使图片带有超链接的功能，即点击一个图片进入一个指定的网页。那么可以这样写：
 
 ```md
-[![baidu3]](http://www.baidu.com/img/bdlogo.gif)](https://www.zhi-jie.net "百度Logo")
+[![baidu3](http://www.baidu.com/img/bdlogo.gif)](https://www.zhi-jie.net "悬停显示")
 ```
 
 demo --------------------------
 
 [![baidu3](http://www.baidu.com/img/bdlogo.gif)](https://www.zhi-jie.net "悬停显示")
+
+--------------------------
+
+```md
+[![baidu3][test]](https://www.zhi-jie.net "悬停显示")
+[test]:http://www.baidu.com/img/bdlogo.gif
+
+```
+
+demo --------------------------
+
+[![baidu3][test]](https://www.zhi-jie.net "悬停显示")
+[test]:http://www.baidu.com/img/bdlogo.gif
 
 --------------------------
 
