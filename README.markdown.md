@@ -262,7 +262,7 @@ demo --------------------------
 
 demo --------------------------
 
-[baidu3](https://www.zhi-jie.net "百度Logo)
+[baidu3](https://www.zhi-jie.net "悬停显示")
 ![baidu3](http://www.baidu.com/img/bdlogo.gif)
 
 
