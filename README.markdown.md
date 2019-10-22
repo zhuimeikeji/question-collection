@@ -276,7 +276,7 @@ demo --------------------------
 
 demo --------------------------
 
-[![baidu4][test]](https://www.zhi-jie.net "悬停显示")
+![baidu4][test]
 [test]:http://www.baidu.com/img/bdlogo.gif
 
 --------------------------
