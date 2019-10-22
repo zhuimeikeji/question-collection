@@ -300,8 +300,8 @@ demo --------------------------
 
 demo --------------------------
 
-[![baidu4][baidu5]](https://www.zhi-jie.net)
-[baidu5]:http://www.baidu.com/img/bdlogo.gif  "悬停显示"
+[![baidu4][baidu5str]](https://www.zhi-jie.net)
+[baidu5str]:http://www.baidu.com/img/bdlogo.gif  "悬停显示"
 
 --------------------------
 
