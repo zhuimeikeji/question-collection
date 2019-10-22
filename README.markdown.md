@@ -197,24 +197,24 @@ demo --------------------------
 在方括号里可以加入一些 标识性的信息，比如
 
 ```md
-![baidu](http://www.baidu.com/img/bdlogo.gif)  
+![baidu1](http://www.baidu.com/img/bdlogo.gif)  
 ```
 
 demo --------------------------
 
-![baidu](http://www.baidu.com/img/bdlogo.gif)  
+![baidu1](http://www.baidu.com/img/bdlogo.gif)  
 
 --------------------------
 
 这个方括号里的baidu并不会对图像显示造成任何改动，如果你想达到<em>鼠标悬停</em>显示提示信息，那么可以仿照前面介绍的文本中的方法，就是这样：
 
 ```md
-![baidu](http://www.baidu.com/img/bdlogo.gif "百度logo")   
+![baidu2](http://www.baidu.com/img/bdlogo.gif "百度logo")   
 ```
 
 demo --------------------------
 
-![baidu](http://www.baidu.com/img/bdlogo.gif "百度logo")    
+![baidu2](http://www.baidu.com/img/bdlogo.gif "百度logo")    
 
 --------------------------
 
@@ -257,14 +257,14 @@ demo --------------------------
 如果你想使图片带有超链接的功能，即点击一个图片进入一个指定的网页。那么可以这样写：
 
 ```md
-![baidu](http://baidu.com)
-[baidu]:http://www.baidu.com/img/bdlogo.gif "百度Logo"  
+[![baidu3]](http://baidu.com)  
+[baidu3]:http://www.baidu.com/img/bdlogo.gif "百度Logo"  
 ```
 
 demo --------------------------
 
-![baidu](http://baidu.com)
-[baidu]:http://www.baidu.com/img/bdlogo.gif "百度Logo" 
+[![baidu3]](http://baidu.com)  
+[baidu3]:http://www.baidu.com/img/bdlogo.gif "百度Logo" 
 
 --------------------------
 
