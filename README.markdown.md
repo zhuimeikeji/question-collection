@@ -257,14 +257,12 @@ demo --------------------------
 如果你想使图片带有超链接的功能，即点击一个图片进入一个指定的网页。那么可以这样写：
 
 ```md
-[![baidu3]](http://baidu.com)  
-[baidu3]:http://www.baidu.com/img/bdlogo.gif "百度Logo"  
+[![baidu3]](http://www.baidu.com/img/bdlogo.gif "百度Logo")](https://www.zhi-jie.net)
 ```
 
 demo --------------------------
 
-[![baidu3]](http://baidu.com)  
-[baidu3]:http://www.baidu.com/img/bdlogo.gif "百度Logo" 
+[![baidu3]](http://www.baidu.com/img/bdlogo.gif "百度Logo")](https://www.zhi-jie.net)
 
 --------------------------
 
