@@ -218,3 +218,35 @@ demo --------------------------
 
 --------------------------
 
+### GitHub仓库里的图片
+
+有时候我们想显示一个GitHub仓库(或者说项目)里的图片而不是一张其他来源网络图片，因为其他来源的URL很可能会失效。那么如何显示一个GitHub项目里的图片呢？
+
+其实与上面的格式基本一致的，所不同的就是括号里的URL该怎么写。
+
+```md
+https://github.com/ 你的用户名 / 你的项目名 / raw / 分支名 / 存放图片的文件夹 / 该文件夹下的图片
+https://gitee.com/ 你的用户名 / 你的项目名 / blob / 分支名 / 存放图片的文件夹 / 该文件夹下的图片
+```
+
+这样一目了然了吧。比如：
+
+```md
+![](https://gitee.com/zhuimei/question-collection/blob/master/img/testimg.jpeg) 
+```
+
+demo --------------------------
+
+![](https://gitee.com/zhuimei/question-collection/blob/master/img/testimg.jpeg)  
+
+--------------------------
+
+```md
+![](./img/testimg.jpeg) 
+```
+
+demo --------------------------
+
+![](./img/testimg.jpeg)  
+
+--------------------------
