@@ -269,6 +269,7 @@ demo --------------------------
 
 ```md
 ![avatar][base64str]
+
 [base64str]:data:image/jpeg;base64,/9j/4AAQSkZJRg......
 ```
 
@@ -277,6 +278,8 @@ demo --------------------------
 ![avatar][base64str]
 
 --------------------------
+
+用高级用法时，格式代码和标示的代码至少中间要空一行，否则可能显示不正确
 
 
 ### 给图片加上超链接
@@ -295,14 +298,15 @@ demo --------------------------
 
 ```md
 [![baidu4][baidu5]](https://www.zhi-jie.net)
+
 [baidu5]:http://www.baidu.com/img/bdlogo.gif  "悬停显示"
 ```
 
 demo --------------------------
 
-[![avatar][base641str]](https://www.zhi-jie.net)
+[![baidu4][baidu5]](https://www.zhi-jie.net)
 
-[base641str]:http://www.baidu.com/img/bdlogo.gif  "悬停显示"
+[baidu5]:http://www.baidu.com/img/bdlogo.gif  "悬停显示"
 
 --------------------------
 
