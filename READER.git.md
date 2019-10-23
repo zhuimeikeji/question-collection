@@ -63,6 +63,27 @@ git config --global user.name "zhuimei"
 * 显示新增、修改、删除的文件清单 `git log --name-status`
 * 一行显示并只显示 SHA-1 的前几个字符 `git log --oneline`
 
+### Branch 分支
+
+分支用于为项目增加新功能或修复 Bug 时使用。
+
+* 创建分支 `git branch dev`
+* 查看分支 `git branch`
+* 切换分支 `git checkout dev`
+* 创建并切换分支 `git checkout -b feature/bbs`
+* 合并 dev 分支到 master
+
+```
+git checkout master
+git merge dev
+```
+
+* 删除分支 `git branch -d dev`
+* 删除没有合并的分支 `git branch -D dev`
+* 删除远程分支 `git push origin :dev`
+* 查看未合并的分支 (切换到 master) `git branch --no-merged`
+* 查看已经合并的分支 (切换到 master) `git branch --merged`
+
 ### Alias 别名
 
 通过创建命令别名可以减少命令输入量。
