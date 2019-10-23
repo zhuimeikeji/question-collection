@@ -168,5 +168,38 @@ doc/*.txt
 doc/**/*.pdf
 ```
 
+---------------
 
+## 冲突
+
+不同分支修改同一个文件或不同开发者修改同一个分支文件都可能造成冲突，造成无法提交代码。
+
+当合并git,或拉取的时候会存在 `git merge` 合并动作中存在冲突。
+
+可以先通过 `git diff` 查看是否有冲突。 备注：`git diff` 详讲单独做篇幅
+
+使用编辑器修改冲突的文件
+
+添加暂存 `git add .` 表示已经解决冲突
+
+`git commit` 提交完成
+
+-----------------
+
+## 储藏（Stashing）
+
+当你正在进行项目中某一部分的工作，里面的东西处于一个比较杂乱的状态，而你想转到其他分支上进行一些工作。问题是，你不想提交进行了一半的工作，否则以后你无法回到这个工作点。
+
+"暂存" 可以获取你工作目录的中间状态 —— 也就是你修改过的被追踪的文件和暂存的变更 —— 并将它保存到一个未完结变更的堆栈中，随时可以重新应用。
+
+* 储藏工作 `git stash`, 执行存储时，添加备注，方便查找 `git stash save "save message"`
+* 查看储藏列表 `git stash list`
+* 显示做了哪些改动 `git stash show`，默认show第一个存储,如果要显示其他存贮，后面加stash@{$num}，比如第二个 `git stash show stash@{1}`
+* 显示第一个存储的改动 `git stash show -p`，如果想显示其他存存储，命令：git stash show  stash@{$num}  -p ，比如第二个：`git stash show  stash@{1}  -p`
+* 应用某个存储 `git stash apply`,但不会把存储从存储列表中删除，默认使用第一个存储,即stash@{0}，如果要使用其他个，`git stash apply stash@{$num}` ， 比如第二个：`git stash apply stash@{1}` 
+* 命令恢复之前缓存的工作目录 `git stash pop`，将缓存堆栈中的对应stash删除，并将对应修改应用到当前的工作目录下,默认为第一个stash,即stash@{0}，如果要应用并删除其他stash，命令：`git stash pop stash@{$num}` ，比如应用并删除第二个：`git stash pop stash@{1}`
+* 丢弃stash@{$num}存储，从列表中删除这个存储 `git stash drop stash@{$num}`
+* 删除所有缓存的stash  `git stash clear`
+
+说明:新增的文件，直接执行stash是不会被存储的
 
