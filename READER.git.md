@@ -250,3 +250,91 @@ git push coding master
 ```
 
 通常用origin作为远程仓库的名字，它只是个名字而已，你可以换成你喜欢的名字。例如我这里换成了github和coding
+
+---------------------------
+
+## git 优先级划分
+
+#### 一.配置文件级别：
+
+（1）.当前项目级别。
+
+（2）.当前电脑用户级别。
+
+（3）.系统级别。
+
+#### 二.分别介绍：
+
+（1）.项目级别：
+
+配置文件位于当前项目 `.git\config` 目录下。
+
+特别说明：.git目录默认状态是隐藏的；读取配置文件代码如下：
+
+```
+$ git config --local -l
+```
+
+local参数指定读取当前项目下的配置文件，l是list的缩写，当然也可以写成：
+
+```
+$ git config --local --list
+```
+
+（2）.当前用户级别：
+
+也可以称之为全局配置文件，对当前电脑用户下所有的git项目都有效。
+
+这是我本机电脑的位置，此配置文件对于Administrator管理员账号下的所有项目都是有效的。
+
+读取配置文件内容代码如下：
+
+```
+$ git config --global -l
+```
+
+global 参数指定读取全局配置文件，l是list的缩写，当然也可以写成：
+
+```
+$ git config --global --list
+```
+
+#### 三.配置文件优先级:
+
+配置文件的配置项有可能是重复的，优先级关系由大到小如下：
+
+（1）.当前项目级别。
+
+（2）.当前电脑用户级别。
+
+（3）.系统级别。
+
+#### 四.一些简易的配置
+
+1. 设置全局变量
+
+```
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+```
+
+2. 查看 config 配置列表
+
+```
+$ git config --list
+```
+
+3. 查看单个配置 
+
+```
+$ git config user.name 
+John Doe
+```
+
+4. 项目级别配置
+
+```
+$ git config --local
+```
+
+5. 综合修改 用户下的 `.gitconfig`， 通过修改该文件达到修改全局配置 
