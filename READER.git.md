@@ -16,10 +16,13 @@ windows 用户我更建议安装 `git for windows` ，下载地址： [https://g
 ```  
 git --version
 ```
+-------
 
 ## Gui
 
 Gui 指 Git 的图形界面管理软件，[https://git-scm.com/downloads/guis](https://git-scm.com/downloads/guis) 这个网址列出了多个可供基本上所有平台使用的 `Gui` 软件。如果要使用 `Gui` 而非命令行操作，我推荐 `sourcetree `这也是我多年使用的软件，功能强大、跨平台、免费。
+
+--------
 
 ## 配置
 
@@ -31,3 +34,19 @@ Gui 指 Git 的图形界面管理软件，[https://git-scm.com/downloads/guis](h
 git config --global user.email "1020536633@qq.com"
 git config --global user.name "zhuimei"
 ```
+
+#### 常用
+
+* 初始化新仓库 `git init`
+* 克隆旧仓库 `git clone xxxx`
+* 查看状态 `git status`
+* 提交单个文件 `git add index.php`
+* 提交所有文件 `git add -A`
+* 使用通配符提交 `git add *.js`
+* 提交到仓库中 `git commit -m '提示信息'`
+* 提交已经跟踪过的文件，不需要执行 `add git commit -a -m '提交信息'`
+* 删除版本库与项目目录中的文件 `git rm index.php`
+* 只删除版本库中文件但保存项目目录中文件 `git rm --cached index.php`
+* 修改最后一次提交 `git commit --amend`
+
+
