@@ -84,6 +84,20 @@ git merge dev
 * 查看未合并的分支 (切换到 master) `git branch --no-merged`
 * 查看已经合并的分支 (切换到 master) `git branch --merged`
 
+------------------------
+
+### Tag
+
+Git 也可以对某一时间点上的版本打上标签 ，用于发布软件版本如 v1.0
+
+添加标签 `git tag v1.0`
+列出标签 `git tag`
+推送标签 `git push --tags`
+删除标签 `git tag -d v1.0.1`
+删除远程标签 `git push origin :v1.0.1`
+
+由于tag用的不多就不详细介绍，有兴趣的同学可以自己去研究
+
 ### Alias 别名
 
 通过创建命令别名可以减少命令输入量。
@@ -338,3 +352,141 @@ $ git config --local
 ```
 
 5. 综合修改 用户下的 `.gitconfig`， 通过修改该文件达到修改全局配置 
+
+------------------------
+
+##  项目的关联管理
+
+#### 新建项目
+
+```
+echo "# git-use" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:zhuimeikeji/git-use.git
+git push -u origin master
+```
+
+#### 已有项目
+
+```
+git remote add origin git@github.com:zhuimeikeji/git-use.git
+git push -u origin master
+```
+
+#### 发布
+
+对 mster 分支代码生成压缩包供使用者下载使用，--prefix 指定目录名
+
+```
+git archive master --prefix='hdcms/' --format=zip > hdcms.zip
+```
+
+#### 远程仓库
+
+下面是最热的 Github 进行讲解，使用码云、codeing 等国内仓库使用方式一致，就不在赘述了。
+
+#### 创建仓库
+
+为了完成以下示例，你需要在 GitHub 创建好仓库。
+
+###### SSH
+
+生成秘钥
+
+使用 ssh 连接 Github 发送指令更加安全可靠，也可以免掉每次输入密码的困扰。
+
+在命令行中输入以下代码（windows 用户使用 Git Bash）
+
+```
+ssh-keygen -t rsa -C '1020536633@qq.com'
+```
+
+一直按回车键直到结束。系统会在 ~/.ssh 目录中生成 id_rsa 和 id_rsa.pub，即密钥 id_rsa 和公钥 id_rsa.pub。
+
+向 GitHub 添加秘钥
+
+点击 New SSH key 按钮，添加上面生成的 id_rsa.pub 公钥内容。
+
+###### 关联远程
+
+创建本地库并完成初始提交
+
+echo "# hd-xj" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+
+###### 添加远程仓库
+
+git remote add origin git@github.com:houdunwang/hd-xj.git
+
+###### 查看远程库
+
+```
+git remote -v
+```
+
+###### 推送数据到远程仓库
+
+```
+git push -u origin master
+```
+
+###### 删除远程仓库关联
+
+```
+git remote rm origin
+```
+
+通过 clone 克隆的仓库，本地与远程已经自动关联，上面几步都可以省略。
+
+###### pull
+
+拉取远程主机某个分支的更新，再与本地的指定分支合并。
+
+拉取 origin 主机的 ask 分支与本地的 master 分支合并 `git pull origin ask:ask`
+拉取 origin 主机的 ask 分支与当前分支合并 `git pull origin ask`
+如果远程分支与当前本地分支同名直接执行 `git pull`
+
+###### push
+
+`git push` 命令用于将本地分支的更新，推送到远程主机。它的格式与 `git pull` 命令相似。
+
+将当前分支推送到 origin 主机的对应分支 (如果当前分支只有一个追踪分支 ，可省略主机名)
+
+`git push origin`
+
+使用 -u 选项指定一个默认主机，这样以后就可以不加任何参数直播使用 git push。
+
+```
+$ git push -u origin master
+```
+
+删除远程 ask 分支 `git push origin --delete ask`
+
+
+本地 ask 分支关联远程分支并推送 `git push --set-upstream origin ask`
+
+###### 提交多个库
+
+我可以将代码提交到多个远程版本库中，比如后盾人的 课程代码 就提交到了 Github 与 Gitee 两个库中。
+
+增加一个远程库
+
+```
+git remote add github git@github.com:houdunwang/coding.git
+```
+
+提交到远程库
+
+```
+git push github
+```
+
+也可以创建命令一次提交到两个库 (注：参考上面的命令设置章节)
+
+```
+alias gp="git push & git push github"
+```
