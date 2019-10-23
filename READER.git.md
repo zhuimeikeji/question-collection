@@ -203,3 +203,50 @@ doc/**/*.pdf
 
 说明:新增的文件，直接执行stash是不会被存储的
 
+---------------------
+
+## 关联多个平台的SSH KEY
+
+1. 生成指定SSH KEY
+
+```
+ssh-keygen -t rsa -C "备注"
+```
+
+2. 进入SSH目录，创建CONFIG
+
+```
+cd ~/.ssh
+touch config
+```
+
+3. 打开CONFIG，填写对应站点数据
+
+```
+Host github.com
+HostName github.com
+User git
+IdentityFile c:\Users\super\.ssh\id_rsa
+
+Host gitee.com
+HostName gitee.com
+User git
+IdentityFile c:\Users\super\.ssh\gitee_id_rsa
+```
+
+User 用户名可以都用 git
+
+说明：修改后使用 `source config`, 使修改生效
+
+--------------------------
+
+## 同一个项目提交到多个平台
+
+```
+git remote add github git@github.com/youname/youprojectname.git
+git remote add coding git@coding.net/youname/youprojectname.git
+git push github master
+git push coding master
+```
+
+通常用origin作为远程仓库的名字，它只是个名字而已，你可以换成你喜欢的名字。例如我这里换成了github和coding
