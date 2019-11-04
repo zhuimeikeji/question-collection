@@ -22,6 +22,6 @@ npm i serve --save
 npm run serve
 ```
 
-会在命令行下出现这句：INFO: Accepting connections at http://localhost:5000
+会在命令行下出现这句：INFO: Accepting connections at `http://localhost:5000`
 
-在浏览器输入http://localhost:5000即可查看到你打包好的项目
+在浏览器输入 `http://localhost:5000` 即可查看到你打包好的项目
