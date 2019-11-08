@@ -110,3 +110,103 @@ bundledDependencies中的依赖必须在devDependencies或者dependencies中声�
 ## peerDependencies: 
 
 指定当前组件的依赖以其版本。如果组件使用者在项目中安装了其他版本的同一依赖，会提示报错。
+
+## publishConfig
+
+这个配置是会在模块发布时用到的一些值的集合。如果你不想模块被默认被标记为最新的，或者默认发布到公共仓库，可以在这里配置tag或仓库地址。
+
+
+
+
+## workspaces
+
+工作空间是一种新的方式来设置您的包体系结构，默认情况下可以从Yarn 1.0开始。它允许您以这种方式设置多个软件包，只需要运行yarn install一次即可将所有软件包安装在一个通道中。
+
+#### 你为什么想做这个？
+
+* 您的依赖关系可以链接在一起，这意味着您的工作区可以相互依赖，同时始终使用最新的可用代码。这也是一个相对于yarn link更好的机制，因为它只影响你的工作空间树，而不是整个系统。
+* 您所有的项目依赖关系都将被安装在一起，为Yarn提供更多的自由度来更好地优化它们。
+* 对于每个项目，Yarn将使用一个单独的锁文件而不是为每个工程使用一个不同的锁文件，这意味着更少的冲突和更容易的审查。
+
+#### 如何使用它？
+
+
+在package.json文件中添加以下内容。从现在开始，我们将这个目录称为“workspace root”：
+
+package.json
+
+```
+{
+    "private": true,
+    "workspaces": [
+        "workspace-a",
+        "workspace-b"
+    ]
+}
+```
+
+请注意，`private: true`是必需的！工作区并不意味着要发布，所以我们增加了这个安全措施，以确保没有任何东西可以意外暴露它们。
+
+
+在创建此文件后，创建两个名为`workspace-a`和`workspace-b`的新子文件夹。在其中的每个文件中，使用以下内容创建另一个package.json文件：
+
+workspace-a/package.json:
+
+```
+{
+    "name": "workspace-a",
+    "version": "1.0.0",
+
+    "dependencies": {
+        "cross-env": "5.0.5"
+    }
+}
+```
+
+workspace-b/package.json:
+
+```
+{
+    "name": "workspace-b",
+    "version": "1.0.0",
+
+    "dependencies": {
+        "cross-env": "5.0.5",
+        "workspace-a": "1.0.0"
+    }
+}
+```
+最后，在某个地方运行yarn install，最好在工作区的根目录下运行。如果一切正常，你现在应该有一个类似的文件层次结构：
+
+```
+/package.json
+/yarn.lock
+
+/node_modules
+/node_modules/cross-env
+/node_modules/workspace-a -> /workspace-a
+
+/workspace-a/package.json
+/workspace-b/package.json
+```
+
+现在需要`workspace-a`位于`workspace-b`的文件你的项目中将使用当前位于项目中的确切代码，而不是在Github上发布的代码，并且`cross-env`包已被正确地删除并放在项目的根目录下，以供两者`workspace-a`和`workspace-b`使用。
+
+#### 它与Lerna相比如何？
+
+Yarn的工作区是Lerna的工具可以（和做！）使用的底层原语。他们绝不会尝试支持Lerna提供的高级功能，但通过实施Yarn内部的解决方案和链接步骤的核心逻辑，我们希望能够启用新的用法并提高性能。
+
+#### 提示与技巧
+
+* `workspaces`字段是包含每个工作区的路径的数组。由于追踪每个路径可能很乏味，因此该字段也接受glob模式！例如，Babel通过一个`packages/*`指令来引用它们的所有包。
+* 工作空间足够稳定，可用于大规模应用程序，不应该改变常规安装的工作方式，但如果您认为他们正在破坏某些东西，可以通过将以下行添加到Yarnrc文件中来禁用它们：工作区 - 实验
+
+
+#### 限制和注意事项
+
+* 程序包布局在您的工作空间和用户将得到的内容之间会有所不同（工作空间依赖关系将被升高到文件系统层次结构中）。对这种布局做出假设已经很危险，因为提升过程不规范，理论上这里没有什么新的东西。
+* 在上面的例子中，如果workspace-b依赖于workspace-apackage.json中引用的不同版本，依赖将从Github安装，而不是从本地文件系统链接。这是因为一些软件包实际上需要使用以前的版本才能构建新的版本（Babel就是其中之一）。
+* 根据文件夹层次结构，工作空间必须是工作空间根的子项。您不能也不能引用位于此文件系统层次结构之外的工作空间。
+* 目前不支持嵌套工作区。
+
+
