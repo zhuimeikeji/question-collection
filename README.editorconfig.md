@@ -66,7 +66,7 @@ indent_size = 2
 
 3、插件安装，在GitHub上已经有了各种流行编辑器的插件源代码，可根据说明安装。
 
-4、对于VS Core，对应的插件名是EditorConfig for VS Code。
+4、对于VS Core，对应的插件名是[EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)。
 
 5、这里列举了VS Code支持的规则：
 
